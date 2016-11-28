@@ -4,7 +4,7 @@ xa=0.0 ## tiempo inicial
 xb=100000.0 ## tiempo final 
 de=4 ## exponente del error por paso con error=10**(-de-1) 
 h=0.1 ## dt
-v= 120 #magnitud de la velocidad m/s
+v= 5000 #magnitud de la velocidad m/s
 th=pi/4 # angulo en radianes   
 w=[0, v*cos(th),0, v*sin(th)] ## condiciones iniciales, u2,u3,u4,u5
 def crear_vector(xa,xb,k):   #xa y xb el intervalo con xa<xb, y k la cantidad de puntos
@@ -54,11 +54,11 @@ def Runge_kutta_s2(w,xa,xb,de,h):
         def funcion2(u1,u2,u3,u4,u5):
                 G=6.67*10**-11 ## constante de gravitacion N*m²/kg²
                 mT=5.972*10**24 ## masa de la tierra kg
-                m=10.0 ## masa de la particula kg
+                m=100.0 ## masa de la particula kg
                 RT=6371*10**3 ## radio de la tierra metros
                 B=0.0 ## coeficiente drag
                 k=0.0001 ## constante de rebote
-		C=0.5 ## constante de corrientes de aire
+		C=0.1 ## constante de corrientes de aire
                 if sqrt(u2**2+(u4+RT)**2)>=RT:
                         f=-G*mT*u2/((u2**2+u4**2+RT**2+2*RT*u4)*sqrt(u2**2+(u4+RT)**2))-B*u3*sqrt(u3**2+u5**2)/m+C*u3/sqrt(u3**2+u5**2)
                 else:
@@ -70,11 +70,11 @@ def Runge_kutta_s2(w,xa,xb,de,h):
         def funcion4(u1,u2,u3,u4,u5):
                 G=6.67*10**-11 ## constante de gravitacion N*m²/kg²
                 mT=5.972*10**24 ## masa de la tierra kg
-                m=10.0 ## masa de la particula kg
+                m=100.0 ## masa de la particula kg
                 RT=6371*10**3 ## radio de la tierra metros
                 B=0.0 ## coeficiente drag
                 k=0.0001 ## constante de rebote
-		C=0.5 ## constante de corrientes de aire
+		C=0.1
                 if sqrt(u2**2+(u4+RT)**2)>=RT:
                         f=-G*mT*(u4+RT)/((u2**2+u4**2+RT**2+2*RT*u4)*sqrt(u2**2+(u4+RT)**2))-B*u5*sqrt(u3**2+u5**2)/m+C*u5/sqrt(u3**2+u5**2)
                 else:
@@ -151,10 +151,10 @@ H=F[1]
 hn=F[2]
 hmin=F[3]
 for ii in range(0,len(H)):
-#    if ii<30 and (ii%3)==0:
-#        print vt[ii],H[ii][0],H[ii][1],H[ii][2],H[ii][3]
-#    elif (ii-30)%10==0:
-    print vt[ii],H[ii][0],H[ii][1],H[ii][2],H[ii][3]
+    if ii<30 and (ii%3)==0:
+        print vt[ii],H[ii][0],H[ii][1],H[ii][2],H[ii][3]
+    elif (ii-30)%10==0:
+        print vt[ii],H[ii][0],H[ii][1],H[ii][2],H[ii][3]
 
 #print '#h=',hn
 #print '#hmin=',hmin
