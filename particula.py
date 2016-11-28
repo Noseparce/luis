@@ -3,9 +3,9 @@ from math import *
 xa=0.0 ## tiempo inicial 
 xb=100000.0 ## tiempo final 
 de=4 ## exponente del error por paso con error=10**(-de-1) 
-h=0.1 ## dt
+h=0.01 ## dt
 v= 5000 #magnitud de la velocidad m/s
-th=pi/4 # angulo en radianes   
+th=pi/6 # angulo en radianes   
 w=[0, v*cos(th),0, v*sin(th)] ## condiciones iniciales, u2,u3,u4,u5
 def crear_vector(xa,xb,k):   #xa y xb el intervalo con xa<xb, y k la cantidad de puntos
 	deltax=(xb-xa)/(float(k)-1.0)
@@ -56,9 +56,9 @@ def Runge_kutta_s2(w,xa,xb,de,h):
                 mT=5.972*10**24 ## masa de la tierra kg
                 m=100.0 ## masa de la particula kg
                 RT=6371*10**3 ## radio de la tierra metros
-                B=0.0 ## coeficiente drag
+                B=0.1 ## coeficiente drag
                 k=0.0001 ## constante de rebote
-		C=0.1 ## constante de corrientes de aire
+		C=0.0 ## constante de corrientes de aire
                 if sqrt(u2**2+(u4+RT)**2)>=RT:
                         f=-G*mT*u2/((u2**2+u4**2+RT**2+2*RT*u4)*sqrt(u2**2+(u4+RT)**2))-B*u3*sqrt(u3**2+u5**2)/m+C*u3/sqrt(u3**2+u5**2)
                 else:
@@ -72,9 +72,9 @@ def Runge_kutta_s2(w,xa,xb,de,h):
                 mT=5.972*10**24 ## masa de la tierra kg
                 m=100.0 ## masa de la particula kg
                 RT=6371*10**3 ## radio de la tierra metros
-                B=0.0 ## coeficiente drag
+                B=0.1 ## coeficiente drag
                 k=0.0001 ## constante de rebote
-		C=0.1
+		C=0.0
                 if sqrt(u2**2+(u4+RT)**2)>=RT:
                         f=-G*mT*(u4+RT)/((u2**2+u4**2+RT**2+2*RT*u4)*sqrt(u2**2+(u4+RT)**2))-B*u5*sqrt(u3**2+u5**2)/m+C*u5/sqrt(u3**2+u5**2)
                 else:
