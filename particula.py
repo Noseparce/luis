@@ -58,7 +58,7 @@ def Runge_kutta_s2(w,xa,xb,de,h):
                 RT=6371*10**3 ## radio de la tierra metros
                 B=0.0 ## coeficiente drag
                 k=0.0001 ## constante de rebote
-		C=0.1 ## constante de corrientes de aire
+		C=0.5 ## constante de corrientes de aire
                 if sqrt(u2**2+(u4+RT)**2)>=RT:
                         f=-G*mT*u2/((u2**2+u4**2+RT**2+2*RT*u4)*sqrt(u2**2+(u4+RT)**2))-B*u3*sqrt(u3**2+u5**2)/m+C*u3/sqrt(u3**2+u5**2)
                 else:
@@ -74,7 +74,7 @@ def Runge_kutta_s2(w,xa,xb,de,h):
                 RT=6371*10**3 ## radio de la tierra metros
                 B=0.0 ## coeficiente drag
                 k=0.0001 ## constante de rebote
-		C=0.1 ## constante de corrientes de aire
+		C=0.5 ## constante de corrientes de aire
                 if sqrt(u2**2+(u4+RT)**2)>=RT:
                         f=-G*mT*(u4+RT)/((u2**2+u4**2+RT**2+2*RT*u4)*sqrt(u2**2+(u4+RT)**2))-B*u5*sqrt(u3**2+u5**2)/m+C*u5/sqrt(u3**2+u5**2)
                 else:
